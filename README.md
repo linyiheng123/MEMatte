@@ -1,4 +1,4 @@
 # MEMatte
 
-[] release UHRIM dataset
-[] release code and checkpoint
+- [ ] release UHRIM dataset
+- [ ] release code and checkpoint
