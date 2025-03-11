@@ -29,7 +29,7 @@ lr_multiplier.scheduler.num_updates = train.max_iter
 lr_multiplier.warmup_length = 250 / train.max_iter
 
 train.init_checkpoint = './pretrained/ViTMatte_B_Com_with_teacher.pth'
-train.output_dir = './output_of_train/ViTMatte_B_topk0.25_win_global_long'
+train.output_dir = './output_of_train/MEMatte_B_topk0.25_win_global_long'
 
 dataloader.train.batch_size=10
 dataloader.train.num_workers=4
