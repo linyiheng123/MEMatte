@@ -2,7 +2,7 @@ from .common.train import train
 from .common.model import model
 from .common.optimizer import optimizer
 from .common.scheduler import lr_multiplier
-from .common.dataloader import dataloader
+from .common.dataloader import dataloader, train_dataset
 
 
 train.max_iter = int(43100 / 16 / 2 * 30)
