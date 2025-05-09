@@ -27,6 +27,7 @@ MT Lab, Meitu Inc
 Transformer-based models have recently achieved outstanding performance in image matting. However, their application to high-resolution images remains challenging due to the quadratic complexity of global self-attention. To address this issue, we propose MEMatte, a memory-efficient matting framework for processing high-resolution images. MEMatte incorporates a router before each global attention block, directing informative tokens to the global attention while routing other tokens to a Lightweight Token Refinement Module (LTRM). Specifically, the router employs a local-global strategy to predict the routing probability of each token, and the LTRM utilizes efficient modules to simulate global attention. Additionally, we introduce a Batch-constrained Adaptive Token Routing (BATR) mechanism, which allows each router to dynamically route tokens based on image content and the stages of attention block in the network.
 
 ## Dataset
+Our proposed ultra high-resolution image matting datasets:
 [`huggingface: dafbgd/UHRIM`](https://huggingface.co/datasets/dafbgd/UHRIM) 
 
 
@@ -51,6 +52,16 @@ We also train a robust model for real-world images AIM-500 using mixed data:
 | Model      | SAD   | MSE | Grad | Conn   | checkpoints |
 | ---------- | ----- | --- | ---- | -----  | ----------- |
 | MEMatte-ViTS | 13.90 | 11.17 | 10.94 | 12.78  | Coming Soon |
+
+## Train
+1. Download the official checkpoints of ViTMatte ([ViTMatte_S_Com.pth](https://drive.google.com/file/d/12VKhSwE_miF9lWQQCgK7mv83rJIls3Xe/view), [ViTMatte_B_Com.pth](https://drive.google.com/file/d/1mOO5MMU4kwhNX96AlfpwjAoMM4V5w3k-/view?pli=1)), and then process the checkpoints using `pretrained/preprocess.py`.
+2. Set `train.init_checkpoint` in the configs to specify the processed checkpoint.
+3. Train the model with the following command:
+```
+python main.py \
+        --config-file configs/MEMatte_S_topk0.25_win_global_long.py \
+        --num-gpus 2
+```
 
 
 ## Inference
@@ -77,6 +88,22 @@ python inference.py \
 - [x] release UHRIM dataset
 - [x] release code and checkpoint
 
+## Acknowledgement
+Thanks the great works: [**ViTMatte!**](https://github.com/hustvl/ViTMatte), [**DynamicViT!**](https://github.com/raoyongming/DynamicViT), [Matteformer](https://github.com/webtoon/matteformer), [ToMe](https://github.com/facebookresearch/ToMe), [EViT](https://github.com/youweiliang/evit).
+
+## Citation
+If you have any questions, please feel free to open an issue. If you find our method or dataset helpful, we would appreciate it if you could give our project a star ⭐️ on GitHub and cite our paper:
+```bibtex
+@inproceedings{lin2025memory,
+  title={Memory Efficient Matting with Adaptive Token Routing},
+  author={Lin, Yiheng and Hu, Yihan and Zhang, Chenyi and Liu, Ting and Qu, Xiaochao and Liu, Luoqi and Zhao, Yao and Wei, Yunchao},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={39},
+  number={5},
+  pages={5298--5306},
+  year={2025}
+}
+```
 
 ## License
 The code is released under the MIT License. It is a short, permissive software license. Basically, you can do whatever you want as long as you include the original copyright and license notice in any copy of the software/source. 
