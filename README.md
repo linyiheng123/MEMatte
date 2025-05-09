@@ -88,9 +88,6 @@ python inference.py \
 - [x] release UHRIM dataset
 - [x] release code and checkpoint
 
-## Acknowledgement
-Thanks the great works: [**ViTMatte!**](https://github.com/hustvl/ViTMatte), [**DynamicViT!**](https://github.com/raoyongming/DynamicViT), [Matteformer](https://github.com/webtoon/matteformer), [ToMe](https://github.com/facebookresearch/ToMe), [EViT](https://github.com/youweiliang/evit).
-
 ## Citation
 If you have any questions, please feel free to open an issue. If you find our method or dataset helpful, we would appreciate it if you could give our project a star ⭐️ on GitHub and cite our paper:
 ```bibtex
@@ -109,5 +106,5 @@ If you have any questions, please feel free to open an issue. If you find our me
 The code is released under the MIT License. It is a short, permissive software license. Basically, you can do whatever you want as long as you include the original copyright and license notice in any copy of the software/source. 
 
 ## Acknowledgement
-Our project is developed based on [ViTMatte](https://github.com/hustvl/ViTMatte). Thanks for their wonderful work!<div align="center">
+Our project is developed based on [ViTMatte](https://github.com/hustvl/ViTMatte), [DynamicViT](https://github.com/raoyongming/DynamicViT), [Matteformer](https://github.com/webtoon/matteformer), [ToMe](https://github.com/facebookresearch/ToMe), [EViT](https://github.com/youweiliang/evit). Thanks for their wonderful work!<div align="center">
 
