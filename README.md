@@ -51,7 +51,7 @@ Quantitative Results on [Composition-1k](https://paperswithcode.com/dataset/comp
 We also train a robust model for real-world images AIM-500 using mixed data:
 | Model      | SAD   | MSE | Grad | Conn   | checkpoints |
 | ---------- | ----- | --- | ---- | -----  | ----------- |
-| MEMatte-ViTS | 13.90 | 11.17 | 10.94 | 12.78  | Coming Soon |
+| MEMatte-ViTS | 13.90 | 11.17 | 10.94 | 12.78  | [GoogleDrive](https://drive.google.com/file/d/1R5NbgIpOudKjvLz1V9M9SxXr1ovAmu3u/view?usp=drive_link) |
 
 ## Train
 1. Download the official checkpoints of ViTMatte ([ViTMatte_S_Com.pth](https://drive.google.com/file/d/12VKhSwE_miF9lWQQCgK7mv83rJIls3Xe/view), [ViTMatte_B_Com.pth](https://drive.google.com/file/d/1mOO5MMU4kwhNX96AlfpwjAoMM4V5w3k-/view?pli=1)), and then process the checkpoints using `pretrained/preprocess.py`.
