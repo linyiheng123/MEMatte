@@ -4,7 +4,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from einops import rearrange, repeat, pack, unpack
 from functools import partial
 from collections import namedtuple
 from torch import Tensor, nn, einsum
@@ -30,12 +29,6 @@ def default(val, d):
 
 def divisible_by(numer, denom):
     return (numer % denom) == 0
-
-def pack_one(t, pattern):
-    return pack([t], pattern)
-
-def unpack_one(t, ps, pattern):
-    return unpack(t, ps, pattern)[0]
 
 def pad_to_multiple(tensor, multiple, dim=-1, value=0):
     seq_len = tensor.shape[dim]
