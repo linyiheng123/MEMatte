@@ -86,6 +86,52 @@ python inference.py \
 # Reducing the maximum number of tokens lowers memory usage.
 ```
 
+## Qwen Image Editing
+
+`qwen_image_edit.py` combines MEMatte's alpha-matting pipeline with the
+[Qwen / DashScope](https://dashscope.aliyuncs.com/) image-synthesis API to
+replace or stylise the background of any image in a single command.
+
+### Installation
+
+Install the optional `dashscope` dependency:
+```
+pip install dashscope
+```
+
+Obtain a DashScope API key from the [Alibaba Cloud console](https://dashscope.console.aliyun.com/)
+and export it:
+```
+export DASHSCOPE_API_KEY=your_api_key
+```
+
+### Usage
+
+**With a pre-computed alpha matte** (skip the matting step):
+```
+python qwen_image_edit.py \
+    --image  path/to/image.jpg \
+    --alpha  path/to/alpha.png \
+    --prompt "a snowy mountain landscape" \
+    --output result.png
+```
+
+**Run MEMatte matting on the fly** (trimap required):
+```
+python qwen_image_edit.py \
+    --image          path/to/image.jpg \
+    --trimap         path/to/trimap.png \
+    --config-dir     ./configs/MEMatte_S_topk0.25_win_global_long.py \
+    --checkpoint-dir ./checkpoints/MEMatte_ViTS_DIM.pth \
+    --prompt         "a tropical beach at sunset" \
+    --output         result.png
+```
+
+The script will:
+1. Extract the foreground using the alpha matte (computed by MEMatte or loaded from `--alpha`).
+2. Generate a new background matching the text `--prompt` via the Qwen/DashScope `wanx-v1` model.
+3. Alpha-composite the foreground over the generated background and save the result.
+
 ## ToDo
 - [x] release UHRIM dataset
 - [x] release code and checkpoint

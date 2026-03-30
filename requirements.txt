@@ -8,3 +8,5 @@ easydict
 wget
 scikit-image
 fairscale
+# Optional – required only for qwen_image_edit.py (Qwen/DashScope image editing)
+# dashscope
